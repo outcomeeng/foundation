@@ -1,6 +1,6 @@
 # foundation
 
-Foundation skills: testing, prose, plugin development, frontend design
+Foundation skills: prose, plugin development, frontend design
 
 > This repo is auto-generated from [outcomeeng/claude](https://github.com/outcomeeng/claude).
 > For the Claude Code plugin marketplace, use `claude plugin marketplace add outcomeeng/claude`.
@@ -11,12 +11,10 @@ Foundation skills: testing, prose, plugin development, frontend design
 npx skills add outcomeeng/foundation
 ```
 
-## Skills (11)
+## Skills (9)
 
 | Skill | Description |
 | ----- | ----------- |
-| `reviewing-tests` | Foundational test review methodology |
-| `testing` | ALWAYS invoke this skill before writing tests or when learning the testing approach |
 | `reviewing-prose` | reviewing, editing, or improving prose for quality |
 | `writing-prose` | generating articles, documentation, blog posts, specs, or any long-form text |
 | `auditing-commands` | auditing, reviewing, or evaluating slash command .md files |
