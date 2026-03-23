@@ -11,11 +11,12 @@ Foundation skills: prose, plugin development, frontend design
 npx skills add outcomeeng/foundation
 ```
 
-## Skills (9)
+## Skills (10)
 
 | Skill | Description |
 | ----- | ----------- |
 | `reviewing-prose` | reviewing, editing, or improving prose for quality |
+| `standardizing-prose` | Prose anti-patterns enforced across all skills |
 | `writing-prose` | generating articles, documentation, blog posts, specs, or any long-form text |
 | `auditing-commands` | auditing, reviewing, or evaluating slash command .md files |
 | `auditing-skills` | auditing, reviewing, or evaluating SKILL.md files |
