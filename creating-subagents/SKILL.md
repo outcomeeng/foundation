@@ -5,18 +5,12 @@ description: >-
   NEVER create subagents without this skill.
 ---
 
-<accessing_skill_files>
-When this skill is invoked, Claude Code provides the base directory. Throughout this skill, we refer to it as `${SKILL_DIR}`.
-
-Reference files: `${SKILL_DIR}/references/`
-
-**IMPORTANT**: Do NOT search the project directory for skill files. If you cannot find a file, use Glob: `.claude/plugins/cache/**/creating-subagents/**/*.md`
-</accessing_skill_files>
-
 <objective>
 Subagents are specialized Claude instances that run in isolated contexts with focused roles and limited tool access. This skill teaches you how to create effective subagents, write strong system prompts, configure tool access, and orchestrate multi-agent workflows using the Task tool.
 
 Subagents enable delegation of complex tasks to specialized agents that operate autonomously without user interaction, returning their final output to the main conversation.
+
+Read `/standardizing-agent-prompts` for voice, description, constraint, and anti-pattern conventions before writing prompt text.
 </objective>
 
 <quick_start>
@@ -30,6 +24,7 @@ Subagents enable delegation of complex tasks to specialized agents that operate 
    - **description**: When should this subagent be used?
    - **tools**: Optional comma-separated list (inherits all if omitted)
    - **model**: Optional (`opus`, `sonnet`, `haiku`, or `inherit`)
+   - **skills**: Optional array of skill names to inject at startup
 5. Write the system prompt (the subagent's instructions)
 
 </workflow>
@@ -60,7 +55,7 @@ You are a senior code reviewer focused on quality, security, and best practices.
 Provide specific, actionable feedback with file:line references.
 </output_format>
 
-```
+````
 </example>
 </quick_start>
 
@@ -101,6 +96,21 @@ Project-level subagents override user-level when names conflict.
 - If omitted: defaults to configured subagent model (usually sonnet)
 
 </field>
+
+<field name="skills">
+- Array of skill names to inject into the subagent's context at startup
+- The full SKILL.md content of each listed skill is loaded before the subagent runs
+- Subagents do NOT inherit skills from the parent conversation — list every needed skill explicitly
+- The subagent receives skill content as reference material, not as dynamically invocable skills
+- If omitted: no skills injected
+
+```yaml
+skills:
+  - auditing-typescript
+  - testing
+````
+
+</field>
 </configuration>
 
 <execution_model>
@@ -108,6 +118,7 @@ Project-level subagents override user-level when names conflict.
 **Subagents are black boxes that cannot interact with users.**
 
 Subagents run in isolated contexts and return their final output to the main conversation. They:
+
 - ✅ Can use tools like Read, Write, Edit, Bash, Grep, Glob
 - ✅ Can access MCP servers and other non-interactive tools
 - ❌ **Cannot use AskUserQuestion** or any tool requiring user interaction
@@ -121,20 +132,22 @@ The main conversation sees only the subagent's final report/output.
 **Designing workflows with subagents:**
 
 Use **main chat** for:
+
 - Gathering requirements from user (AskUserQuestion)
 - Presenting options or decisions to user
 - Any task requiring user confirmation/input
 - Work where user needs visibility into progress
 
 Use **subagents** for:
+
 - Research tasks (API documentation lookup, code analysis)
 - Code generation based on pre-defined requirements
 - Analysis and reporting (security review, test coverage)
 - Context-heavy operations that don't need user interaction
 
 **Example workflow pattern:**
-```
 
+```
 Main Chat: Ask user for requirements (AskUserQuestion)
 ↓
 Subagent: Research API and create documentation (no user interaction)
@@ -144,8 +157,8 @@ Main Chat: Review research with user, confirm approach
 Subagent: Generate code based on confirmed plan
 ↓
 Main Chat: Present results, handle testing/deployment
+```
 
-````
 </workflow_design>
 </execution_model>
 
@@ -170,11 +183,12 @@ You are a senior code reviewer specializing in security.
 </role>
 
 <focus_areas>
+
 - SQL injection vulnerabilities
 - XSS attack vectors
 - Authentication/authorization issues
 - Sensitive data exposure
-</focus_areas>
+  </focus_areas>
 
 <workflow>
 1. Read the modified files
@@ -182,7 +196,7 @@ You are a senior code reviewer specializing in security.
 3. Provide specific remediation steps
 4. Rate severity (Critical/High/Medium/Low)
 </workflow>
-````
+```
 
 </principle>
 
@@ -263,6 +277,7 @@ Run `/agents` for an interactive interface to:
 - Create new subagents
 - Edit existing subagents
 - Delete custom subagents
+
 </using_agents_command>
 
 <manual_editing>
@@ -277,15 +292,16 @@ You can also edit subagent files directly:
 <reference>
 **Core references**:
 
-**Subagent usage and configuration**: [${SKILL_DIR}/references/subagents.md](references/subagents.md)
+**Subagent usage and configuration**: [${CLAUDE_SKILL_DIR}/references/subagents.md](references/subagents.md)
 
 - File format and configuration
+- Skill injection (`skills:` field for preloading skill content)
 - Model selection (Sonnet 4.5 + Haiku 4.5 orchestration)
 - Tool security and least privilege
 - Prompt caching optimization
 - Complete examples
 
-**Writing effective prompts**: [${SKILL_DIR}/references/writing-subagent-prompts.md](references/writing-subagent-prompts.md)
+**Writing effective prompts**: [${CLAUDE_SKILL_DIR}/references/writing-subagent-prompts.md](references/writing-subagent-prompts.md)
 
 - Core principles and XML structure
 - Description field optimization for routing
@@ -295,35 +311,35 @@ You can also edit subagent files directly:
 
 **Advanced topics**:
 
-**Evaluation and testing**: [${SKILL_DIR}/references/evaluation-and-testing.md](references/evaluation-and-testing.md)
+**Evaluation and testing**: [${CLAUDE_SKILL_DIR}/references/evaluation-and-testing.md](references/evaluation-and-testing.md)
 
 - Evaluation metrics (task completion, tool correctness, robustness)
 - Testing strategies (offline, simulation, online monitoring)
 - Evaluation-driven development
 - G-Eval for custom criteria
 
-**Error handling and recovery**: [${SKILL_DIR}/references/error-handling-and-recovery.md](references/error-handling-and-recovery.md)
+**Error handling and recovery**: [${CLAUDE_SKILL_DIR}/references/error-handling-and-recovery.md](references/error-handling-and-recovery.md)
 
 - Common failure modes and causes
 - Recovery strategies (graceful degradation, retry, circuit breakers)
 - Structured communication and observability
 - Anti-patterns to avoid
 
-**Context management**: [${SKILL_DIR}/references/context-management.md](references/context-management.md)
+**Context management**: [${CLAUDE_SKILL_DIR}/references/context-management.md](references/context-management.md)
 
 - Memory architecture (STM, LTM, working memory)
 - Context strategies (summarization, sliding window, scratchpads)
 - Managing long-running tasks
 - Prompt caching interaction
 
-**Orchestration patterns**: [${SKILL_DIR}/references/orchestration-patterns.md](references/orchestration-patterns.md)
+**Orchestration patterns**: [${CLAUDE_SKILL_DIR}/references/orchestration-patterns.md](references/orchestration-patterns.md)
 
 - Sequential, parallel, hierarchical, coordinator patterns
 - Sonnet + Haiku orchestration for cost/performance
 - Multi-agent coordination
 - Pattern selection guidance
 
-**Debugging and troubleshooting**: [${SKILL_DIR}/references/debugging-agents.md](references/debugging-agents.md)
+**Debugging and troubleshooting**: [${CLAUDE_SKILL_DIR}/references/debugging-agents.md](references/debugging-agents.md)
 
 - Logging, tracing, and correlation IDs
 - Common failure types (hallucinations, format errors, tool misuse)

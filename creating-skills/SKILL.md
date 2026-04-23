@@ -5,33 +5,18 @@ description: >-
   NEVER create or modify skills without this skill.
 ---
 
-<accessing_skill_files>
-When this skill is invoked, Claude Code provides the base directory in the loading message:
-
-```
-Base directory for this skill: /path/to/.claude/plugins/cache/{marketplace}/{plugin}/{version}/skills/creating-skills/
-```
-
-Throughout this skill, we refer to this as `${SKILL_DIR}`.
-
-Use this path for all skill file access:
-
-- References: `${SKILL_DIR}/references/`
-- Workflows: `${SKILL_DIR}/workflows/`
-- Templates: `${SKILL_DIR}/templates/`
-- Scripts: `${SKILL_DIR}/scripts/`
-
-**IMPORTANT**: Do NOT search the project directory for skill files. If you cannot find a file, use Glob: `.claude/plugins/cache/**/creating-skills/**/*.md`
-</accessing_skill_files>
+<reference_loading>
+Before creating or auditing any skill, read `/standardizing-skills` to load naming conventions, description standards, template variables, and bash expansion constraints. Then check for `spx/local/standardizing-skills.md` at the repository root and read it if it exists.
+</reference_loading>
 
 <essential_principles>
 Skills are prompts. All prompting best practices apply. Be clear, be direct, assume Claude is smart.
 
 **Pure XML Structure**: No markdown headings (#) in skill body. Use semantic XML tags:
 
-- `<objective>` - What the skill does
-- `<quick_start>` - Immediate actionable guidance
-- `<success_criteria>` - How to know it worked
+- `<objective>` - What the skill does (required)
+- `<success_criteria>` - How to know it worked (required)
+- `<quick_start>` - Fast-path guidance (conditional — include for on-demand tools, omit for foundation/gate/validator skills)
 
 **Progressive Disclosure**: SKILL.md under 500 lines. Details go in `references/` and `workflows/`.
 
@@ -58,6 +43,8 @@ skill-name/
 | Reference  | Share knowledge      | Standards loaded by others   |
 
 **Domain Discovery**: Research the domain BEFORE asking users. Users want expertise IN the skill.
+
+**Prompt Craft**: Read `/standardizing-agent-prompts` for voice, description, constraint, and anti-pattern conventions before writing prompt text.
 </essential_principles>
 
 <intake>
@@ -74,18 +61,18 @@ What would you like to do?
 <routing>
 | Response | Workflow |
 |----------|----------|
-| 1, "create", "new", "build" | `${SKILL_DIR}/workflows/create-new-skill.md` |
-| 2, "audit", "improve", "review", "check" | `${SKILL_DIR}/workflows/audit-skill.md` |
-| 3, "add workflow" | `${SKILL_DIR}/workflows/add-workflow.md` |
-| 3, "add reference" | `${SKILL_DIR}/workflows/add-reference.md` |
-| 3, "upgrade to router" | `${SKILL_DIR}/workflows/upgrade-to-router.md` |
-| 4, "patterns", "understand", "help" | Read `${SKILL_DIR}/references/skill-patterns.md` |
+| 1, "create", "new", "build" | `${CLAUDE_SKILL_DIR}/workflows/create-new-skill.md` |
+| 2, "audit", "improve", "review", "check" | `${CLAUDE_SKILL_DIR}/workflows/audit-skill.md` |
+| 3, "add workflow" | `${CLAUDE_SKILL_DIR}/workflows/add-workflow.md` |
+| 3, "add reference" | `${CLAUDE_SKILL_DIR}/workflows/add-reference.md` |
+| 3, "upgrade to router" | `${CLAUDE_SKILL_DIR}/workflows/upgrade-to-router.md` |
+| 4, "patterns", "understand", "help" | Read `${CLAUDE_SKILL_DIR}/references/skill-patterns.md` |
 
 **Intent-based routing** (if user provides clear context):
 
-- "verify content is current" → `${SKILL_DIR}/workflows/verify-skill.md`
-- "audit this skill" → `${SKILL_DIR}/workflows/audit-skill.md`
-- "create skill for X" → `${SKILL_DIR}/workflows/create-new-skill.md`
+- "verify content is current" → `${CLAUDE_SKILL_DIR}/workflows/verify-skill.md`
+- "audit this skill" → `${CLAUDE_SKILL_DIR}/workflows/audit-skill.md`
+- "create skill for X" → `${CLAUDE_SKILL_DIR}/workflows/create-new-skill.md`
 
 **After reading the workflow, follow it exactly.**
 </routing>
@@ -105,10 +92,11 @@ description: >- # Directive, ≤1024 chars. Add NEVER only if it disambiguates.
 
 ```text
 <objective>What the skill does</objective>
-<quick_start>Minimal working example</quick_start>
 <workflow>Step-by-step procedure</workflow>
 <success_criteria>How to know it worked</success_criteria>
 ```
+
+Add `<quick_start>` only for on-demand tool skills with a meaningful fast path.
 
 **Router Skill Structure**:
 
@@ -127,7 +115,7 @@ description: >- # Directive, ≤1024 chars. Add NEVER only if it disambiguates.
 </quick_reference>
 
 <reference_index>
-All in `${SKILL_DIR}/references/`:
+All in `${CLAUDE_SKILL_DIR}/references/`:
 
 | File                    | Purpose                                          |
 | ----------------------- | ------------------------------------------------ |
@@ -141,7 +129,7 @@ All in `${SKILL_DIR}/references/`:
 </reference_index>
 
 <workflows_index>
-All in `${SKILL_DIR}/workflows/`:
+All in `${CLAUDE_SKILL_DIR}/workflows/`:
 
 | Workflow             | Purpose                                |
 | -------------------- | -------------------------------------- |
@@ -155,7 +143,7 @@ All in `${SKILL_DIR}/workflows/`:
 </workflows_index>
 
 <templates_index>
-All in `${SKILL_DIR}/templates/`:
+All in `${CLAUDE_SKILL_DIR}/templates/`:
 
 | Template            | Purpose                       |
 | ------------------- | ----------------------------- |
@@ -170,7 +158,7 @@ All in `${SKILL_DIR}/templates/`:
 </templates_index>
 
 <scripts_index>
-All in `${SKILL_DIR}/scripts/`:
+All in `${CLAUDE_SKILL_DIR}/scripts/`:
 
 | Script            | Purpose                              |
 | ----------------- | ------------------------------------ |

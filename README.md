@@ -2,8 +2,8 @@
 
 Foundation skills: prose, plugin development, frontend design
 
-> This repo is auto-generated from [outcomeeng/claude](https://github.com/outcomeeng/claude).
-> For the Claude Code plugin marketplace, use `claude plugin marketplace add outcomeeng/claude`.
+> This repo is auto-generated from [outcomeeng/plugins](https://github.com/outcomeeng/plugins).
+> For the shared marketplace, use `claude plugin marketplace add outcomeeng/plugins` or `codex plugin marketplace add outcomeeng/plugins`.
 
 ## Install
 
@@ -11,7 +11,7 @@ Foundation skills: prose, plugin development, frontend design
 npx skills add outcomeeng/foundation
 ```
 
-## Skills (10)
+## Skills (12)
 
 | Skill | Description |
 | ----- | ----------- |
@@ -24,6 +24,8 @@ npx skills add outcomeeng/foundation
 | `creating-commands` | creating or editing slash commands |
 | `creating-skills` | creating, editing, or improving SKILL.md files |
 | `creating-subagents` | creating, editing, or configuring subagents |
+| `standardizing-agent-prompts` | Agent prompt writing conventions enforced across all creator and auditor skills |
+| `standardizing-skills` | Skill authoring standards enforced across all creating and auditing skills |
 | `designing-frontend` | designing or building web components, pages, or dashboards |
 
 ## License
