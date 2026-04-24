@@ -22,7 +22,7 @@ npx skills add outcomeeng/foundation
 | `auditing-skills` | auditing, reviewing, or evaluating SKILL.md files |
 | `auditing-subagents` | auditing, reviewing, or evaluating subagent configuration files |
 | `creating-commands` | creating or editing slash commands |
-| `creating-skills` | creating, editing, or improving SKILL.md files |
+| `creating-skills` | creating, editing, or improving SKILL |
 | `creating-subagents` | creating, editing, or configuring subagents |
 | `standardizing-agent-prompts` | Agent prompt writing conventions enforced across all creator and auditor skills |
 | `standardizing-skills` | Skill authoring standards enforced across all creating and auditing skills |
