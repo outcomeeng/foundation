@@ -17,7 +17,7 @@ npx skills add outcomeeng/foundation
 | ----- | ----------- |
 | `reviewing-prose` | reviewing, editing, or improving prose for quality |
 | `standardizing-prose` | Prose anti-patterns enforced across all skills |
-| `writing-prose` | generating articles, documentation, blog posts, specs, or any long-form text |
+| `writing-prose` | producing a file or standalone document: articles, documentation, blog posts, specs |
 | `auditing-commands` | auditing, reviewing, or evaluating slash command .md files |
 | `auditing-skills` | auditing, reviewing, or evaluating SKILL.md files |
 | `auditing-subagents` | auditing, reviewing, or evaluating subagent configuration files |
