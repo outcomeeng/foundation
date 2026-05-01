@@ -17,7 +17,7 @@ npx skills add outcomeeng/foundation
 | ----- | ----------- |
 | `auditing-prose` | auditing prose in human-facing documents, web pages and messages for humans other than for the user |
 | `standardizing-prose` | Prose anti-patterns enforced across all skills |
-| `writing-prose` | creating or editing prose for human-facing documents, web pages and messages for humans other than for the user |
+| `writing-prose` | writing or editing durable reader-facing prose such as docs, READMEs, web copy, release notes, emails, or PR descriptions |
 | `auditing-commands` | auditing, reviewing, or evaluating slash command .md files |
 | `auditing-skills` | auditing, reviewing, or evaluating SKILL.md files |
 | `auditing-subagents` | auditing, reviewing, or evaluating subagent configuration files |
