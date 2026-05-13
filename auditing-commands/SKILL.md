@@ -169,62 +169,41 @@ Always explain WHY something matters for this specific command, not just that it
 </contextual_judgment>
 
 <output_format>
-Audit reports use severity-based findings, not scores. Generate output using this markdown template:
+Emit the verdict as JSON conforming to the canonical schema in `plugins/spec-tree/skills/auditing/scripts/verdict.py`. The skill's entire output is the JSON verdict. The calling agent or orchestrator captures the JSON and routes it through `emit_verdict.py` with the requested `--format` (defaulting to `markdown+json` for PR-comment delivery).
 
-```markdown
-## Audit Results: [command-name]
+The skill's `overall` is `PASS` iff the `critical-issues` row has no findings with severity `REJECT`; `FAIL` if any critical finding is `REJECT`; `UNKNOWN` if the command file cannot be read or the audit cannot complete. Recommendations land as `WARNING` findings under `recommendations`; strengths land as `INFO` findings under `strengths`; quick fixes land as `INFO` findings under `quick-fixes`.
 
-### Assessment
-
-[1-2 sentence overall assessment: Is this command fit for purpose? What's the main takeaway?]
-
-### Critical Issues
-
-Issues that hurt effectiveness or security:
-
-1. **[Issue category]** (file:line)
-   - Current: [What exists now]
-   - Should be: [What it should be]
-   - Why it matters: [Specific impact on this command's effectiveness/security]
-   - Fix: [Specific action to take]
-
-2. ...
-
-(If none: "No critical issues found.")
-
-### Recommendations
-
-Improvements that would make this command better:
-
-1. **[Issue category]** (file:line)
-   - Current: [What exists now]
-   - Recommendation: [What to change]
-   - Benefit: [How this improves the command]
-
-2. ...
-
-(If none: "No recommendations - command follows best practices well.")
-
-### Strengths
-
-What's working well (keep these):
-
-- [Specific strength with location]
-- ...
-
-### Quick Fixes
-
-Minor issues easily resolved:
-
-1. [Issue] at file:line → [One-line fix]
-2. ...
-
-### Context
-
-- Command type: [simple/state-dependent/security-sensitive/delegation]
-- Line count: [number]
-- Security profile: [none/low/medium/high - based on what the command does]
-- Estimated effort to address issues: [low/medium/high]
+```json
+{
+  "schema_version": 1,
+  "skill": "auditing-commands",
+  "target": "<command-path>",
+  "overall": "PASS | FAIL | UNKNOWN",
+  "rows": [
+    {
+      "name": "critical-issues",
+      "status": "PASS | FAIL | UNKNOWN",
+      "findings": [
+        {
+          "id": "f-001",
+          "file": "<command-file>",
+          "line": null,
+          "rule": "<issue-category>",
+          "severity": "REJECT",
+          "message": "Current: <…>. Should be: <…>. Why it matters: <…>. Fix: <…>."
+        }
+      ]
+    },
+    { "name": "recommendations", "status": "PASS", "findings": [] },
+    { "name": "strengths", "status": "PASS", "findings": [] },
+    { "name": "quick-fixes", "status": "PASS", "findings": [] }
+  ],
+  "metadata": {
+    "command_type": "simple | state-dependent | security-sensitive | delegation",
+    "line_count": "<n>",
+    "security_profile": "none | low | medium | high"
+  }
+}
 ```
 
 </output_format>
