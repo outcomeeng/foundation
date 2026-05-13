@@ -132,7 +132,7 @@ Every skill should gather context at runtime:
 | **Codebase**         | Existing structure, patterns, conventions |
 | **Conversation**     | User's specific requirements, constraints |
 | **Skill References** | Domain patterns from `references/`        |
-| **User Guidelines**  | Project-specific conventions              |
+| **User Guidelines**  | Product-specific conventions              |
 ```
 
 ## Step 9: Validate Structure
@@ -146,7 +146,7 @@ Check:
 - [ ] SKILL.md under 500 lines
 - [ ] XML tags properly closed
 
-Run: `python scripts/quick_validate.py {skill-path}`
+Run: `python3 scripts/quick_validate.py {skill-path}`
 
 ## Step 10: Test
 
