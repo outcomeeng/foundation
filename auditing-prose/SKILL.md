@@ -6,14 +6,7 @@ description: >-
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-prose/SKILL.md" || echo "standardizing-prose not found — invoke skill prose:standardizing-prose now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke these skills now before proceeding:
-
-1. Skill `prose:standardizing-prose`
-
-</codex_fallback>
+Invoke the `prose:standardizing-prose` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 

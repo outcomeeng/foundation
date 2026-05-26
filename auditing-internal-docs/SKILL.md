@@ -5,14 +5,7 @@ description: >-
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-internal-docs/SKILL.md" || echo "standardizing-internal-docs not found — invoke skill prose:standardizing-internal-docs now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke this skill now before proceeding:
-
-1. Skill `prose:standardizing-internal-docs`
-
-</codex_fallback>
+Invoke the `prose:standardizing-internal-docs` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 Detect anti-patterns in internal documents and propose concrete rewrites. Flag specific violations with category and pattern name; show the fix.

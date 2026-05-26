@@ -6,17 +6,9 @@ description: >-
 argument-hint: <command-path>
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../creating-commands/SKILL.md" || echo "creating-commands not found — invoke skill develop:creating-commands now"`
+Invoke the `develop:creating-commands` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-agent-prompts/SKILL.md" || echo "standardizing-agent-prompts not found — invoke skill develop:standardizing-agent-prompts now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke these skills now before proceeding:
-
-1. Skill `develop:creating-commands`
-2. Skill `develop:standardizing-agent-prompts`
-
-</codex_fallback>
+Invoke the `develop:standardizing-agent-prompts` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 Evaluate slash command .md files against best practices for structure, YAML configuration, argument usage, dynamic context, tool restrictions, and effectiveness. Then provide actionable findings with contextual judgment, not arbitrary scores.

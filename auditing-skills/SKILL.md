@@ -6,17 +6,9 @@ description: >-
 argument-hint: <skill-path>
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-skills/SKILL.md" || echo "standardizing-skills not found — invoke skill develop:standardizing-skills now"`
+Invoke the `develop:standardizing-skills` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-agent-prompts/SKILL.md" || echo "standardizing-agent-prompts not found — invoke skill develop:standardizing-agent-prompts now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke these skills now before proceeding:
-
-1. Skill `develop:standardizing-skills`
-2. Skill `develop:standardizing-agent-prompts`
-
-</codex_fallback>
+Invoke the `develop:standardizing-agent-prompts` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 Evaluate SKILL.md files against best practices for structure, conciseness, progressive disclosure, and effectiveness. Provide actionable findings with contextual judgment, not arbitrary scores.

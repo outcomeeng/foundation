@@ -6,17 +6,9 @@ description: >-
 argument-hint: <subagent-path>
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-agent-prompts/SKILL.md" || echo "standardizing-agent-prompts not found — invoke skill develop:standardizing-agent-prompts now"`
+Invoke the `develop:standardizing-agent-prompts` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
-!`cat "${CLAUDE_SKILL_DIR}/../creating-subagents/SKILL.md" || echo "creating-subagents not found — invoke skill develop:creating-subagents now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke these skills now before proceeding:
-
-1. Skill `develop:standardizing-agent-prompts`
-2. Skill `develop:creating-subagents`
-
-</codex_fallback>
+Invoke the `develop:creating-subagents` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 Evaluate subagent configuration files against best practices for role definition, prompt quality, tool selection, model appropriateness, and effectiveness. Provide actionable findings with contextual judgment, not arbitrary scores.

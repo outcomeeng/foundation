@@ -5,14 +5,7 @@ description: >-
 allowed-tools: Read, Edit, Write, Glob, Grep
 ---
 
-!`cat "${CLAUDE_SKILL_DIR}/../standardizing-internal-docs/SKILL.md" || echo "standardizing-internal-docs not found — invoke skill prose:standardizing-internal-docs now"`
-
-<codex_fallback>
-If you see `cat` commands above rather than skill content, shell injection did not run (Codex or similar environment). Invoke this skill now before proceeding:
-
-1. Skill `prose:standardizing-internal-docs`
-
-</codex_fallback>
+Invoke the `prose:standardizing-internal-docs` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
 
 <objective>
 Write internal team documents that are scannable, decisive, and durable. Apply the catalog from `/standardizing-internal-docs`, which inherits the prose rules and overrides or extends them where internal-doc conventions differ.
