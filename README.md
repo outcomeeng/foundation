@@ -11,7 +11,7 @@ Foundation skills: prose, plugin development, frontend design
 npx skills add outcomeeng/foundation
 ```
 
-## Skills (15)
+## Skills (13)
 
 | Skill | Description |
 | ----- | ----------- |
@@ -22,10 +22,8 @@ npx skills add outcomeeng/foundation
 | `write-internal-docs` | writing or editing internal team documents that live in a workspace: Notion pages, runbooks, hiring rubrics and scorecards, internal policies, decision records, design specs, competency models, onboarding guides, status pages, internal wiki content. Use this skill whenever the user is creating a doc intended for colleagues who already have context, not for strangers reading it for the first time |
 | `write-prose` | writing reader-facing documents such as public docs, web pages, and product messages for outside readers like developers and customers |
 | `agent-prompt-standards` | Agent prompt writing conventions enforced across all creator and auditor skills |
-| `audit-commands` | Slash-command audit methodology preloaded by the command-auditor agent |
 | `audit-skills` | SKILL |
 | `audit-subagents` | Subagent-configuration audit methodology preloaded by the subagent-auditor agent |
-| `create-commands` | creating or editing slash commands |
 | `create-skills` | creating, editing, or improving SKILL |
 | `create-subagents` | creating, editing, or configuring subagents |
 | `skill-standards` | Skill authoring standards enforced across all creating and auditing skills |
