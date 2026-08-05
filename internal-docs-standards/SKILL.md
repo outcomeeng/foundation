@@ -1,8 +1,8 @@
 ---
-name: internal-doc-standards
+name: internal-docs-standards
 user-invocable: false
 description: >-
-  Catalog of anti-patterns and positive patterns for internal team documents (Notion pages, runbooks, scorecards, hiring rubrics, internal policies, competency models, team decision records, design specs). Reference skill loaded by other internal-doc skills, not invoked directly. Use write-internal-docs to write, or audit-internal-docs to review.
+  Catalog of anti-patterns and positive patterns for internal team documents (Notion pages, runbooks, scorecards, hiring rubrics, internal policies, competency models, team decision records, design specs). Reference skill loaded by the composed internal-doc skills, not invoked directly. Reached through author-prose and the dispatched prose-auditor agent for the internal-docs kind.
 allowed-tools: Read
 ---
 
@@ -43,7 +43,7 @@ Formatting. Em-dash overuse remains forbidden. Use em dashes sparingly. The `<ti
 <overrides>
 The following rules from `/prose-standards` are RELAXED for internal docs.
 
-Bold-first table cells are allowed. External prose forbids bold-first bullets. Internal docs use bold for column-one row labels in tables when those labels function as the section identifier or row key. Competency matrices, scoring rubrics, comparison grids, and most structured tables benefit from bold left-column labels. The reader is scanning the table for a specific row, and bold labels accelerate that.
+Bold-first table cells are allowed. External prose forbids bold-first bullets. Internal docs use bold for column-one row labels in tables when those labels function as the section identifier or row key. Competency matrices, scoring rubrics, comparison grids, and most structured tables benefit from bold left-column labels. The reader is scanning the table for a specific row, and bold labels accelerate that. Example: a levelling matrix whose first column reads "**Ownership**", "**Craft**", "**Communication**" — each label is the row key the reader scans for.
 
 Parentheses are allowed when they aid clarity. External prose discourages parentheses as decoration. Internal docs use parentheses for three legitimate purposes.
 
@@ -117,6 +117,8 @@ Per-section context. When sections of the doc cover separate concerns, the first
 </positive_patterns>
 
 <success_criteria>
+The catalog itself is sound when every rule in `<inherited_rules>`, `<overrides>`, and `<additional_rules>` carries its name and rule text, and every override carries at least one worked example.
+
 Before declaring a doc finished, check:
 
 The opening sentence is substantive, not boilerplate or metadata.
