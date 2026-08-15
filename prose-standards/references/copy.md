@@ -1,20 +1,12 @@
----
-name: author-copy
-user-invocable: false
-description: >-
-  Copy authoring guidance — essays, articles, and other self-contained pieces — composed by author-prose for the copy kind. Reached only through author-prose, never matched directly.
-allowed-tools: Read, Edit, Write, Glob, Grep, Skill
----
+# Copy style layer
 
-Invoke the `prose:copy-standards` skill before proceeding. If that skill is unavailable, report the missing skill and continue with the closest available workflow.
+The style rules for the copy kind — a standalone piece read start to finish: essays, articles, long-form landing narrative. The base catalog and the voice canon bind in full; this layer adds the word- and sentence-level craft a read-through piece needs. Structural conventions for the kind live in the matching `/prose-architecture-standards` reference.
 
-<objective>
+## Overrides
 
-A self-contained piece — essay, article, long-form narrative — that reads as varied, specific, and human.
+None. Copy relaxes no base rule — the voice is the base voice, at zero tolerance.
 
-</objective>
-
-<word_choice>
+## Word choice
 
 Use common verbs. Is, has, does, makes, runs, shows. When a simpler verb says the same thing, use it. "The library is the city's main archive" over any construction that dresses up "is" in formalwear.
 
@@ -24,9 +16,7 @@ Use the plainest accurate noun for a field, area, or collection: field, area, ma
 
 Use words that were normal before 2023. If a word feels like a thesaurus entry for a common word, use the common word — or show the quality through specifics rather than asserting it with any adjective at all.
 
-</word_choice>
-
-<sentence_structure>
+## Sentence structure
 
 One rhetorical move per paragraph. A sentence that makes a point is followed by development, support, or transition — not a reframe of the same point.
 
@@ -48,28 +38,6 @@ Participial phrases at sentence endings add new information, or they go.
 
 Build toward the point directly — never negate before stating what something is. Every sentence has a subject and a verb; a claim is not illustrated with a trail of verbless fragments.
 
-</sentence_structure>
-
-<tone_and_composition>
-
-Write at the reader's level; skip analogies simpler than the concept. Begin where the content begins — the first sentence delivers substance. Scope claims to what the text demonstrates; the reader assesses significance. Name sources or rewrite the sentence to stand on its own evidence. Use terms that already exist before coining labels.
-
-Compose per `/copy-standards` `<additional_rules>`: arguments progress, one developed example beats a stack, rhetorical devices are single-use, length matches substance, endings end, tradeoffs live in place.
-
-</tone_and_composition>
-
-<formatting>
+## Formatting
 
 Punctuation names the relationship between clauses; when uncertain, a period and a new sentence is almost always right. Emphasis comes from structure and word choice, not typeface. Lists use plain text items. Use the characters a keyboard produces — straight quotes, plain hyphens, `->` in code.
-
-</formatting>
-
-<success_criteria>
-
-- Verbs are common and precise; adverbs add information, not emphasis.
-- Sentence openings vary; each paragraph develops rather than segments.
-- Claims are scoped to what the text demonstrates and sources are named.
-- The `/copy-standards` layer holds: examples developed, devices single-use, length matched to substance, no announced ending.
-- Zero instances of any `/prose-standards` pattern.
-
-</success_criteria>
