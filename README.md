@@ -16,7 +16,7 @@ npx skills add outcomeeng/foundation
 | Skill | Description |
 | ----- | ----------- |
 | `architect-prose` | writing ADRs for prose |
-| `audit-prose` | Prose audit methodology — judges human-facing text against the anti-pattern catalog, the supplied kind's style and structure layers, and every triggered rule pack, streaming each finding through the run journal as the run advances |
+| `audit-prose` | Prose audit methodology — judges the human-facing text in scope against the anti-pattern catalog, the supplied kind's style and structure layers, and every triggered rule pack |
 | `author-prose` | writing text for human readers — docs pages, UI text, error messages, emails, release notes |
 | `prose-architecture-standards` | Prose ADR conventions enforced across architect and auditor skills |
 | `prose-plugin` | ALWAYS invoke this skill to operate the prose plugin's own lifecycle in a checkout — report its version, manage whatever checkout footprint this plugin owns on the running agent, and check that footprint |
