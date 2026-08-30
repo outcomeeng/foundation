@@ -20,7 +20,7 @@ npx skills add outcomeeng/foundation
 | `author-prose` | writing text for human readers — docs pages, UI text, error messages, emails, release notes |
 | `prose-architecture-standards` | Prose ADR conventions enforced across architect and auditor skills |
 | `prose-plugin` | ALWAYS invoke this skill to operate the prose plugin's own lifecycle — report its version and check or reconcile its agent-delivery footprint |
-| `prose-standards` | Prose anti-patterns enforced across all skills |
+| `prose-standards` | Prose standards enforced across all skills |
 | `design-frontend` | designing or building web components, pages, or dashboards |
 | `frontend-plugin` | ALWAYS invoke this skill to operate the frontend plugin's own lifecycle — report its version and check or reconcile its agent-delivery footprint |
 
